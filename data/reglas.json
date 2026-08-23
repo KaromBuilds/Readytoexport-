@@ -1,0 +1,17 @@
+{
+  "advertencia_riesgo_incendio": {
+    "obligatorio": true,
+    "descripcion": "Las velas deben incluir advertencia de riesgo de incendio en la etiqueta segun normas de EE.UU. (CPSC).",
+    "bloqueante": true
+  },
+  "clasificacion_arancelaria": {
+    "obligatorio": true,
+    "descripcion": "Se requiere una clasificacion arancelaria (HTS) antes de exportar.",
+    "bloqueante": true
+  },
+  "empaque_internacional": {
+    "obligatorio": true,
+    "descripcion": "El empaque debe resistir el manejo de envio internacional.",
+    "bloqueante": false
+  }
+}
