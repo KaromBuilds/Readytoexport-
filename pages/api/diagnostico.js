@@ -40,22 +40,17 @@ Responde SOLO con un objeto JSON valido, sin texto adicional ni backticks, con e
 Ordena "pendientes" con los bloqueantes primero.`;
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
+    const response = await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "claude-sonnet-4-6",
-        max_tokens: 1000,
-        messages: [{ role: "user", content: prompt }],
+        contents: [{ parts: [{ text: prompt }] }],
       }),
     });
 
     const data = await response.json();
-    const textoRespuesta = data?.content?.find((c) => c.type === "text")?.text || "";
+    const textoRespuesta = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
     const limpio = textoRespuesta.replace(/```json|```/g, "").trim();
     const parsed = JSON.parse(limpio);
 
