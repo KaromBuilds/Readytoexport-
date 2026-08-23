@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 export default function Home() {
@@ -55,7 +56,7 @@ export default function Home() {
     <main style={{ maxWidth: 480, margin: "40px auto", fontFamily: "Arial, sans-serif", padding: "0 16px" }}>
       <h1 style={{ fontSize: 22, marginBottom: 4 }}>¿Listo para exportar?</h1>
       <p style={{ color: "#555", marginBottom: 24 }}>
-        Diagnostico de export-readiness para fabricantes de velas y derivados de la parafina.
+        Descubre qué tan lista está tu vela para venderse en Estados Unidos.
       </p>
 
       <form onSubmit={handleSubmit}>
@@ -86,6 +87,9 @@ export default function Home() {
         <label style={{ display: "block", fontSize: 13, marginBottom: 4, marginTop: 8 }}>
           ¿Tu etiqueta incluye advertencia de riesgo de incendio?
         </label>
+        <p style={{ fontSize: 12, color: "#888", margin: "0 0 4px" }}>
+          Un texto en la etiqueta que avise "no dejar sin supervisión, mantener lejos de niños y mascotas" — obligatorio en EE.UU. para velas.
+        </p>
         <select
           value={form.advertenciaIncendio}
           onChange={(e) => setForm({ ...form, advertenciaIncendio: e.target.value })}
@@ -102,6 +106,9 @@ export default function Home() {
         <label style={{ display: "block", fontSize: 13, marginBottom: 4, marginTop: 8 }}>
           ¿Tienes clasificacion arancelaria (HTS) asignada?
         </label>
+        <p style={{ fontSize: 12, color: "#888", margin: "0 0 4px" }}>
+          Es un codigo numerico que le dice a la aduana de EE.UU. qué tipo de producto es el tuyo. Normalmente lo asigna un agente aduanal.
+        </p>
         <select
           value={form.clasificacionArancelaria}
           onChange={(e) => setForm({ ...form, clasificacionArancelaria: e.target.value })}
