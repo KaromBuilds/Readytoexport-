@@ -50,7 +50,17 @@ Ordena "pendientes" con los bloqueantes primero.`;
     });
 
     const data = await response.json();
+
+    if (!response.ok || data?.error) {
+      console.error("Gemini API error:", JSON.stringify(data));
+      return res.status(500).json({ error: `Error de Gemini: ${data?.error?.message || "respuesta invalida"}` });
+    }
+
     const textoRespuesta = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+    if (!textoRespuesta) {
+      console.error("Respuesta sin texto:", JSON.stringify(data));
+      return res.status(500).json({ error: "Gemini no devolvio texto. Revisa los logs para mas detalle." });
+    }
     const limpio = textoRespuesta.replace(/```json|```/g, "").trim();
     const parsed = JSON.parse(limpio);
 
