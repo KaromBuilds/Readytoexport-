@@ -1,4 +1,3 @@
-
 import reglas from "../../data/reglas.json";
 
 function sanitizar(texto) {
@@ -73,10 +72,13 @@ Responde SOLO con un objeto JSON valido, sin texto adicional ni backticks, con e
 Ordena "pendientes" con los bloqueantes primero.`;
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`;
     const response = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": process.env.GEMINI_API_KEY,
+      },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
       }),
