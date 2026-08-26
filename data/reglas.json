@@ -13,5 +13,20 @@
     "obligatorio": true,
     "descripcion": "El empaque debe resistir el manejo de envio internacional.",
     "bloqueante": false
+  },
+  "mecha_sin_plomo": {
+    "obligatorio": true,
+    "descripcion": "Las mechas con nucleo de plomo estan prohibidas en Estados Unidos desde 2003 (CPSC). Debes usar mecha de algodon o madera natural.",
+    "bloqueante": true
+  },
+  "pais_origen": {
+    "obligatorio": true,
+    "descripcion": "La etiqueta debe marcar claramente el pais de origen (ej. 'Hecho en Mexico' o 'Made in Mexico'), requisito de aduana de EE.UU.",
+    "bloqueante": false
+  },
+  "peso_neto": {
+    "obligatorio": true,
+    "descripcion": "La etiqueta debe declarar el peso neto del producto en onzas y gramos, requisito de la FTC (Fair Packaging and Labeling Act).",
+    "bloqueante": false
   }
 }
