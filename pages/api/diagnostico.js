@@ -72,7 +72,7 @@ Responde SOLO con un objeto JSON valido, sin texto adicional ni backticks, con e
 Ordena "pendientes" con los bloqueantes primero.`;
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
